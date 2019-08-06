@@ -23,11 +23,28 @@ describe("BMI Converter", () => {
     });
 
     it("displays assesment", async () => {
-      cy.contains("You are Overweight"); 
+      cy.contains("You are Overweight");
     });
 
     it("displays BMI value", async () => {
       cy.contains("BMI of 27.46");
+    });
+  });
+
+  describe("Imperial method", async () => {
+    beforeEach(async () => {
+      // This before block will be executed prior to each test in this describe block
+      cy.get('select[id="method"]').select("imperial");
+      cy.get('input[name="weight"]').type("200");
+      cy.get('input[name="height"]').type("73");
+    });
+
+    it("displays assesment", async () => {
+      cy.contains("You are Overweight");
+    });
+
+    it("displays BMI value", async () => {
+      cy.contains("BMI of 26.38");
     });
   });
 });
