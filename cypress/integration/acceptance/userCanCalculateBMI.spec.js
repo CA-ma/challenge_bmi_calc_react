@@ -8,4 +8,8 @@ describe('BMI Converter', () => {
       cy.reload();
   });
 
+  it('should display "BMI Converter" text on page', () => {
+    cy.contains('BMI Converter');
+  });
+
 })
