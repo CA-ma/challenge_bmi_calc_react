@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { bmiCalculation } from '../Modules/BMIcalculator';
 
 class DisplayResult extends Component {
   calculate() {
