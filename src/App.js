@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import DisplayResult from './Components/displayResult';
-import "./App.css";
+import DisplayResult from './components/displayResult';
+import "./style/App.css";
 
 class App extends Component {
   constructor(props) {
