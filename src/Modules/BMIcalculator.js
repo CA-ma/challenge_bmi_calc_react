@@ -8,7 +8,7 @@ export const bmiCalculation = (weight, height, method) => {
   weight = isNaN(weight) ? 0 : weight;
   height = isNaN(height) ? 0 : height;
 
-  method == "metric"
+  method === "metric"
     ? (bmi = weight / (((height / 100) * height) / 100))
     : (bmi = (703 * weight) / (height * height));
 

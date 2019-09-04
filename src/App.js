@@ -22,7 +22,7 @@ class App extends Component {
     this.setState({
       method: selectorTarget
     });
-    selectorTarget == "imperial"
+    selectorTarget === "imperial"
       ? this.setState({ weightUnits: "lbs", heightUnits: "inches" })
       : this.setState({ weightUnits: "kg", heightUnits: "cm" });
   }
