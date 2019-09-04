@@ -6,9 +6,21 @@ This project was developed and documented by Max Aubain as an exercise to practi
 ## Goal and Specifications
 A BMI calculator requires body height and weight as inputs, given in metric or imperial units.  A calculuation is involved using the inputs to produce an Index output.  The output is both a numerical value and a qualitative description.
 
-Thinking in the framework of the above mentioned tutorial
+Thinking in the framework of the above mentioned tutorial, the application is planned  as follows,
+1. A hierarchy of components with static relationships,
+2. Consideration of state and where it lives,
+3. Implementation of 'reverse' data flow as state information is passed from children to parent components.
 
+```
++ App
+  -  methodSelect
+  -  inputBiometrics
+  -  displayResult to logic layer: BMIcalculator
 
+App holds state of method, method units, and biometrics.
+
+this.method=method.bind(this) is used to pass 'reverse' data flow through props.
+```
 
 ## Local Build
 To build and run this project locally, fork it to your own Github repository and clone to a local workspace.  Running `npm install` will install the required packages to the local workspace for the application and its testing suites to be functional.
