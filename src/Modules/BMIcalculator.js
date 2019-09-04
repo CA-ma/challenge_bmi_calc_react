@@ -1,3 +1,5 @@
+/* Return body mass index value for a given height, weight, 
+and set of units (imperial or metric) */
 export const bmiCalculation = (weight, height, method) => {
   parseFloat(weight);
   parseFloat(height);
@@ -17,20 +19,15 @@ export const bmiCalculation = (weight, height, method) => {
   }      
 }
 
+/* Qualitatative BMI description */
 const setBMIMessage = (finalBMI) => {
   if (finalBMI < 18.5) {
     return "Underweight";
-  }
-
-  if (finalBMI > 18.5 && finalBMI < 25) {
+  } else if (finalBMI > 18.5 && finalBMI < 25) {
     return "Normal";
-  }
-
-  if (finalBMI > 25 && finalBMI < 30) {
+  } else if (finalBMI > 25 && finalBMI < 30) {
     return "Overweight";
-  }
-
-  if (finalBMI > 30) {
+  } else if (finalBMI > 30) {
     return "Obese";
   }
 }

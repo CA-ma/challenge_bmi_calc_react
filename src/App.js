@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+
 import DisplayResult from './components/displayResult';
+import MethodSelect from './components/methodSelect'
+
 import "./style/App.css";
 
 class App extends Component {
@@ -15,7 +18,11 @@ class App extends Component {
     return (
       <div className="App">
         <div>
-          <h1>BMI Converter</h1>
+          <h1>BMI Calculator</h1>
+        </div>
+
+        <div>
+          <MethodSelect />
         </div>
         
         <div>
