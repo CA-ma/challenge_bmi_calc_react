@@ -15,8 +15,8 @@ class MethodSelect extends Component {
   render() {
     return (
       <select id="method" onChange={this.handleSelectChange}>
-        <option value="metric">Metric</option>
-        <option value="imperial">Imperial</option>
+        <option value="metric">metric</option>
+        <option value="imperial">imperial</option>
       </select>
     );
   }

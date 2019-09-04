@@ -1,4 +1,4 @@
-describe("BMI Converter", () => {
+describe("BMI Calculator", () => {
   before(function() {
     cy.visit("http://localhost:3000");
   });
@@ -7,13 +7,9 @@ describe("BMI Converter", () => {
     cy.reload();
   });
 
-  it('should display "BMI Converter" text on page', () => {
-    cy.contains("BMI Converter");
+  it('should display "BMI Calculator" text on page', () => {
+    cy.contains("BMI Calculator");
   });
-
-  // 'cy.get()' implements a Chai-jquery call to select/interact with the actual element of the DOM
-  // 'cy.contains()' implements a Chai-jquery call to search for rendered content of the DOM
-  // modifing functions, such as '.select', or '.type' are called Cypress Commands: https://docs.cypress.io/api/api/table-of-contents.html
 
   describe("Metric method", () => {
     beforeEach(() => {
@@ -23,28 +19,27 @@ describe("BMI Converter", () => {
     });
 
     it("displays assesment", async () => {
-      cy.contains("You are Overweight");
+      cy.get('div[id="response"]').should('contain',"You are Overweight");
     });
 
     it("displays BMI value", async () => {
-      cy.contains("BMI of 27.46");
+      cy.get('div[id="response"]').should('contain', "BMI of 27.46");
     });
   });
 
-  describe("Imperial method", async () => {
-    beforeEach(async () => {
-      // This before block will be executed prior to each test in this describe block
+  describe("Imperial method", () => {
+    beforeEach(() => {
       cy.get('select[id="method"]').select("imperial");
       cy.get('input[name="weight"]').type("200");
       cy.get('input[name="height"]').type("73");
     });
 
-    it("displays assesment", async () => {
-      cy.contains("You are Overweight");
+    it("displays assesment", () => {
+      cy.get('div[id="response"]').should('contain', "You are Overweight");
     });
 
-    it("displays BMI value", async () => {
-      cy.contains("BMI of 26.38");
+    it("displays BMI value", () => {
+      cy.get('div[id="response"]').should('contain', "BMI of 26.38");
     });
   });
 });
