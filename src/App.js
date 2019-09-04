@@ -4,11 +4,10 @@ import DisplayResult from "./components/displayResult";
 import MethodSelect from "./components/methodSelect";
 
 import "./style/App.css";
-import { bindExpression } from "@babel/types";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       weight: "",
       height: "",
@@ -57,7 +56,7 @@ class App extends Component {
           />
         </div>
 
-        <DisplayResult weight={this.state.weight} height={this.state.height} />
+        <DisplayResult method={this.state.method} weight={this.state.weight} height={this.state.height} />
       </div>
     );
   }

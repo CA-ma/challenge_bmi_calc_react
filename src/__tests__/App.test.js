@@ -1,6 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
-import { stub } from 'sinon';
+import { shallow, mount } from 'enzyme';
 
 import App from '../App';
 
@@ -15,16 +14,6 @@ describe('<App />', () => {
     const component = shallow(<App />);
     const weightLabel = <label>Weight(kg)</label>;
     const heightLabel = <label>Height(cm)</label>;
-    expect(component.contains(weightLabel)).toEqual(true);
-    expect(component.contains(heightLabel)).toEqual(true);
-  })
-
-  it('can change method', () => {
-    const onChangeValue = stub();
-    const component = shallow(<App onChangeValue={onChangeValue} />);
-    const weightLabel = <label>Weight(lbs)</label>;
-    const heightLabel = <label>Height(inches)</label>;
-    component.find("MethodSelect").prop('onChangeValue')({target: {value:'imperial'}});
     expect(component.contains(weightLabel)).toEqual(true);
     expect(component.contains(heightLabel)).toEqual(true);
   })

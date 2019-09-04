@@ -6,10 +6,7 @@ import { bmiCalculation } from '../modules/BMIcalculator';
 on the view after input of the height, weight, and method. */
 class DisplayResult extends Component {
   calculate() {
-    var weight= this.props.weight;
-    var height= this.props.height;
-
-    return bmiCalculation(weight, height);
+    return bmiCalculation(this.props.weight, this.props.height, this.props.method);
   }
 
   render() {
