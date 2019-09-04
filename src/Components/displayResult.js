@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import { bmiCalculation } from "../modules/BMIcalculator";
+import { bmiCalculation } from "../Modules/BMIcalculator";
 
 /* Shows BMI calculation result, an Index value and a qualitative description,
 on the view after input of the height, weight, and method. */

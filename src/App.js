@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import DisplayResult from "./components/displayResult";
-import MethodSelect from "./components/methodSelect";
+import DisplayResult from "./Components/displayResult";
+import MethodSelect from "./Components/methodSelect";
 
 import "./style/App.css";
 
