@@ -22,7 +22,7 @@ class App extends Component {
     this.setState({
       method: selectorTarget
     });
-    (selectorTarget == "imperial")
+    selectorTarget == "imperial"
       ? this.setState({ weightUnits: "lbs", heightUnits: "inches" })
       : this.setState({ weightUnits: "kg", heightUnits: "cm" });
   }
@@ -30,33 +30,41 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div>
-          <h1>BMI Calculator</h1>
-        </div>
+        <div className="wrapper">
+          <div>
+            <h1>BMI Calculator</h1>
+          </div>
 
-        <div>
-          <MethodSelect onSelectChange={this.handleSelectChange} />
-        </div>
+          <div>
+            <MethodSelect onSelectChange={this.handleSelectChange} />
+          </div>
 
-        <div>
-          <label>Weight({this.state.weightUnits})</label>
-          <input
-            name="weight"
-            value={this.state.weight}
-            onChange={e => this.setState({ weight: e.target.value })}
+          <div>
+            <label>Weight({this.state.weightUnits})</label>
+            <input
+              name="weight"
+              value={this.state.weight}
+              onChange={e => this.setState({ weight: e.target.value })}
+              className="param"
+            />
+          </div>
+
+          <div>
+            <label>Height({this.state.heightUnits})</label>
+            <input
+              name="height"
+              value={this.state.height}
+              onChange={e => this.setState({ height: e.target.value })}
+              className="param"
+            />
+          </div>
+
+          <DisplayResult
+            method={this.state.method}
+            weight={this.state.weight}
+            height={this.state.height}
           />
         </div>
-
-        <div>
-          <label>Height({this.state.heightUnits})</label>
-          <input
-            name="height"
-            value={this.state.height}
-            onChange={e => this.setState({ height: e.target.value })}
-          />
-        </div>
-
-        <DisplayResult method={this.state.method} weight={this.state.weight} height={this.state.height} />
       </div>
     );
   }

@@ -5,7 +5,7 @@ or metric units and calculations */
 class MethodSelect extends Component {
   constructor(props) {
     super(props);
-    this.handleSelectChange = this.handleSelectChange.bind(this)
+    this.handleSelectChange = this.handleSelectChange.bind(this);
   }
 
   handleSelectChange(event) {
@@ -14,7 +14,7 @@ class MethodSelect extends Component {
 
   render() {
     return (
-      <select id="method" onChange={this.handleSelectChange}>
+      <select id="method" onChange={this.handleSelectChange} className="param">
         <option value="metric">metric</option>
         <option value="imperial">imperial</option>
       </select>
