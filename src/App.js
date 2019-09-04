@@ -4,6 +4,7 @@ import DisplayResult from "./Components/displayResult";
 import MethodSelect from "./Components/methodSelect";
 
 import "./style/App.css";
+import InputBiometrics from "./Components/inputBiometrics";
 
 class App extends Component {
   constructor() {
@@ -16,6 +17,8 @@ class App extends Component {
       heightUnits: "cm"
     };
     this.handleSelectChange = this.handleSelectChange.bind(this);
+    this.handleWeightInput = this.handleWeightInput.bind(this);
+    this.handleHeightInput = this.handleHeightInput.bind(this);
   }
 
   handleSelectChange(selectorTarget) {
@@ -25,6 +28,18 @@ class App extends Component {
     selectorTarget === "imperial"
       ? this.setState({ weightUnits: "lbs", heightUnits: "inches" })
       : this.setState({ weightUnits: "kg", heightUnits: "cm" });
+  }
+
+  handleWeightInput(inputTarget) {
+    this.setState({
+      weight: inputTarget
+    });
+  }
+
+  handleHeightInput(inputTarget) {
+    this.setState({
+      height: inputTarget
+    });
   }
 
   render() {
@@ -40,22 +55,11 @@ class App extends Component {
           </div>
 
           <div>
-            <label>Weight({this.state.weightUnits})</label>
-            <input
-              name="weight"
-              value={this.state.weight}
-              onChange={e => this.setState({ weight: e.target.value })}
-              className="param"
-            />
-          </div>
-
-          <div>
-            <label>Height({this.state.heightUnits})</label>
-            <input
-              name="height"
-              value={this.state.height}
-              onChange={e => this.setState({ height: e.target.value })}
-              className="param"
+            <InputBiometrics
+              onWeightInput={this.handleWeightInput}
+              weightUnits={this.state.weightUnits}
+              onHeightInput={this.handleHeightInput}
+              heightUnits={this.state.heightUnits}
             />
           </div>
 
